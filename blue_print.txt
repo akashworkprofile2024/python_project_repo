@@ -1,0 +1,27 @@
+Project Banking System:
+
+1. Register Account
+   a. A/C holder Name
+   b. phone number
+   c. Address
+   d. Email
+   e. Account Type Saving or Current (Both Random generated unique 12 digit)
+   f. 4 Digit pin generate
+   g. Active and Inactive Status
+   h. Back to login after register
+
+2. Access Account using A/C number and Pin
+   a. Withdraw
+   b. Deposit
+   c. Balance Check
+   d. Account Close Request
+   e. Account update Request name , phone , address , email
+   f. Exit
+
+3. Bank System Admin Panel
+
+   a. Request Notification
+   b. All Client Details
+   c. Update Account operation
+   d. Close Account
+   e. Exit
