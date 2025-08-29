@@ -10,7 +10,7 @@ def cls():
         os.system('clear')
 
 #==============================  DATA CENTER SCHEMA ====================
-DATA_FILE = '/c/Users/Private/Desktop/Workspace_Folder/Python_Project_Repo/Banking_System/datacenter/client_accounts.json'
+DATA_FILE = "C:\\Users\\Private\\Desktop\\Workspace_Folder\\Python_Project_Repo\\Banking_System\\datacenter\\client_accounts.json"
 
 def load_data():
     if os.path.exists(DATA_FILE):
