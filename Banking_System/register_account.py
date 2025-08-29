@@ -6,15 +6,23 @@ print('Project Banking System')
 print('Register Account')
 
 # Initialize variables
-client_name = input('Enter your name: ')
-age = (input('Enter your age: '))
-address = input('Enter your address: ')
-email = input('Enter your email: ')
+def credentials():
+    client_name = input('Enter Your Full Name: ')
+    age = input('Enter your age: ')
+    # phone= input('Enter 10 Digit Number: ')
+    # address = input('Enter your address: ')
+    # email = input('Enter your email: ')
 
-if not client_name and not age and not address and not email:
-    print('Please fill all the fields')    
-else:
-    print('All good')
+    # Security Client_Name Always have String Value
+    if any(char.isdigit() for char in client_name):
+       print('')
+    
+        
+         
+credentials()
+
+
+
 
 
 
