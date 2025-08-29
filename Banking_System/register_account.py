@@ -1,17 +1,18 @@
 import os
 import json
 import random
-def cls():
-    # For Windows
-    if os.name == 'nt':
-        os.system('cls')
-    # For Mac/Linux
-    else:
-        os.system('clear')
+from twilio.rest import Client
 
-#==============================  DATA CENTER SCHEMA ====================
-# DATA_FILE = "C:\\Users\\Private\\Desktop\\Workspace_Folder\\Python_Project_Repo\\Banking_System\\datacenter\\client_accounts.json" # For Windows
-DATA_FILE = '/opt/lampp/htdocs/gitfetch/Python_Project_Repo/Banking_System/datacenter/client_accounts.json' 
+#========== PASTE TWILIO CONFIGURATION FROM README.md ================
+
+
+#========== PASTE TWILIO CONFIGURATION FROM README.md ================
+
+
+DATA_FILE = '/opt/lampp/htdocs/gitfetch/Python_Project_Repo/Banking_System/datacenter/client_accounts.json'
+
+def cls():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def load_data():
     if os.path.exists(DATA_FILE):
@@ -23,25 +24,21 @@ def save_data(data):
     with open(DATA_FILE, "w") as file:
         json.dump(data, file, indent=4)
 
-#==============================  DATA CENTER SCHEMA END ====================
-
-# ====================   GENERATE PIN AND ACCOUNT NUMBER SCHEMA ===================
 def generate_acc_number(acctype):
-    if acctype.upper()=='S':
-     fixed_prefix = "278755"   # first 6 fixed digits
-     suffix = '01'
-    else:
-     fixed_prefix = '235428'
-     suffix = '02'    
-    random_digits = str(random.randint(1000, 9999))  # 4 random digits
-    return fixed_prefix + random_digits + suffix  # total 12 digits
+    fixed_prefix = "278755" if acctype.upper() == 'S' else '235428'
+    suffix = '01' if acctype.upper() == 'S' else '02'
+    random_digits = str(random.randint(1000, 9999))
+    return fixed_prefix + random_digits + suffix
 
 def generate_acc_pin():
-    return str(random.randint(1000, 9999))  # 4-digit PIN
+    return str(random.randint(1000, 9999))
 
-#=========================== GENERATE PIN AND ACCOUNT NUMBER SCHEMA =============== 
+# ======================= OTP SCHEMA ==================
+
+# ======================= OTP SCHEMA END ==================
+
 def credentials():
-    accounts = load_data() 
+    accounts = load_data()
     while True:
         cls()
         print('\t\t\t\t\t\t\t\t NEO BANK')
@@ -66,18 +63,19 @@ def credentials():
         if not (email.endswith('@gmail.com') or email.endswith('@yahoo.com')):
             print('❌ Not a Valid Email Id')
             continue
-        # === VALIDATIONS END ===
-
-
         if acctype.upper() not in ['S', 'C']:
             print("❌ Invalid Account Type. Choose 'S' or 'C'.")
-            continue  
+            continue
 
+        # === SEND OTP ===
+        
+        #===  SENT OTP END ========
+
+        # === Registration continues ===
         account_number = generate_acc_number(acctype)
         pin = generate_acc_pin()
-        account_type = 'Savings Account' if acctype.upper() == 'S' else 'Current Account'          
+        account_type = 'Savings Account' if acctype.upper() == 'S' else 'Current Account'
 
-#======================== PUSH INTO DATABASE ==========================
         new_user = {
             "account_number": account_number,
             "pin": pin,
@@ -89,24 +87,21 @@ def credentials():
             "account_type": account_type
         }
 
-        # Append to list and save back to file
         accounts.append(new_user)
         save_data(accounts)
-#======================== PUSH INTO DATABASE ========================== 
 
-#======================== CILENT DETAILS ============================= 
         cls()
         print('\t\t\t\t\t\t\t\t NEO BANK')
         print("\n--- Account Created Successfully ---")
-        print(f'Name: {client_name}')  
-        print(f'Age: {age}')  
-        print(f'Phone: {phone}')  
+        print(f'Name: {client_name}')
+        print(f'Age: {age}')
+        print(f'Phone: {phone}')
         print(f'Address: {address}')
         print(f'Email: {email}')
         print(f'Account-Type: {account_type}')
-        print(f'Account-Type: {account_number}') 
-        print(f'Account-PIN: {pin}') 
+        print(f'Account-Number: {account_number}')
+        print(f'Account-PIN: {pin}')
         print("✅ Registered Successfully ✅")
         break
-#======================== CILENT DETAILS END ============================= 
+
 credentials()
