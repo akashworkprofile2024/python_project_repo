@@ -14,6 +14,8 @@ def generate_acc_number(acctype):
     random_digits = str(random.randint(1000, 9999))  # 4 random digits
     return fixed_prefix + random_digits + suffix  # total 12 digits
 
+def generate_acc_pin():
+    return str(random.randint(1000, 9999))  # 4-digit PIN
     
 def credentials():
     while True:
@@ -44,6 +46,7 @@ def credentials():
             continue  
 
         account_number = generate_acc_number(acctype)
+        pin = generate_acc_pin()
         account_type = 'Savings Account' if acctype.upper() == 'S' else 'Current Account'          
         # If everything is valid → print details
         print("\n--- Account Created Successfully ---")
@@ -54,6 +57,8 @@ def credentials():
         print(f'Email: {email}')
         print(f'Account-Type: {account_type}')
         print(f'Account-Type: {account_number}') 
+        print(f'Account-PIN: {pin}') 
+        print("✅ Registered Successfully ✅")
         break
      
 credentials()
