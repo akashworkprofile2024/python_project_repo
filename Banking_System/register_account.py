@@ -26,7 +26,7 @@ def credentials():
       if '@gmail.com' not in  email or '@yahoo.com' not in email:
         print('Not a Valid Email Id')
         credentials() 
-      if   
+      if 
 
 credentials()    
         
