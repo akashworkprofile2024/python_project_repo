@@ -12,6 +12,16 @@ def cls():
 #==============================  DATA CENTER SCHEMA ====================
 DATA_FILE = '/c/Users/Private/Desktop/Workspace_Folder/Python_Project_Repo/Banking_System/datacenter/client_accounts.json'
 
+def load_data():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as file:
+            return json.load(file)
+    return []
+
+def save_data(data):
+    with open(DATA_FILE, "w") as file:
+        json.dump(data, file, indent=4)
+
 #==============================  DATA CENTER SCHEMA END ====================
 
 # ====================   GENERATE PIN AND ACCOUNT NUMBER SCHEMA ===================
@@ -30,6 +40,7 @@ def generate_acc_pin():
 
 #=========================== GENERATE PIN AND ACCOUNT NUMBER SCHEMA =============== 
 def credentials():
+    accounts = load_data() 
     while True:
         cls()
         print('\t\t\t\t\t\t\t\t NEO BANK')
@@ -64,6 +75,23 @@ def credentials():
         account_number = generate_acc_number(acctype)
         pin = generate_acc_pin()
         account_type = 'Savings Account' if acctype.upper() == 'S' else 'Current Account'          
+
+#======================== PUSH INTO DATABASE ==========================
+        new_user = {
+            "account_number": account_number,
+            "pin": pin,
+            "name": client_name,
+            "age": age,
+            "phone": phone,
+            "address": address,
+            "email": email,
+            "account_type": account_type
+        }
+
+        # Append to list and save back to file
+        accounts.append(new_user)
+        save_data(accounts)
+#======================== PUSH INTO DATABASE ========================== 
 
 #======================== CILENT DETAILS ============================= 
         cls()
