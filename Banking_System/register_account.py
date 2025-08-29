@@ -1,9 +1,16 @@
 import os
 import json
 import random
-print('Project Banking System')
-print('Register Account')
+def cls():
+    # For Windows
+    if os.name == 'nt':
+        os.system('cls')
+    # For Mac/Linux
+    else:
+        os.system('clear')
 
+
+# ====================   GENERATE PIN AND ACCOUNT NUMBER SCHEMA ===================
 def generate_acc_number(acctype):
     if acctype.upper()=='S':
      fixed_prefix = "278755"   # first 6 fixed digits
@@ -16,9 +23,13 @@ def generate_acc_number(acctype):
 
 def generate_acc_pin():
     return str(random.randint(1000, 9999))  # 4-digit PIN
-    
+
+#=========================== GENERATE PIN AND ACCOUNT NUMBER SCHEMA =============== 
 def credentials():
     while True:
+        cls()
+        print('\t\t\t\t\t\t\t\t NEO BANK')
+        print('Register Account')
         client_name = input('Enter Your Full Name: ')
         age = input('Enter your age: ')
         phone = input('Enter 10 Digit Number: ')
@@ -26,7 +37,7 @@ def credentials():
         email = input('Enter your email: ')
         acctype = input('Enter account type (S for Savings / C for Current): ')
 
-        # === Validations ===
+        # === VALIDATIONS ===
         if any(char.isdigit() for char in client_name):
             print('❌ Not a Valid Client Name')
             continue
@@ -39,8 +50,9 @@ def credentials():
         if not (email.endswith('@gmail.com') or email.endswith('@yahoo.com')):
             print('❌ Not a Valid Email Id')
             continue
+        # === VALIDATIONS END ===
 
-        # === Account type ===
+
         if acctype.upper() not in ['S', 'C']:
             print("❌ Invalid Account Type. Choose 'S' or 'C'.")
             continue  
@@ -48,7 +60,10 @@ def credentials():
         account_number = generate_acc_number(acctype)
         pin = generate_acc_pin()
         account_type = 'Savings Account' if acctype.upper() == 'S' else 'Current Account'          
-        # If everything is valid → print details
+
+#======================== CILENT DETAILS ============================= 
+        cls()
+        print('\t\t\t\t\t\t\t\t NEO BANK')
         print("\n--- Account Created Successfully ---")
         print(f'Name: {client_name}')  
         print(f'Age: {age}')  
@@ -60,5 +75,6 @@ def credentials():
         print(f'Account-PIN: {pin}') 
         print("✅ Registered Successfully ✅")
         break
+#======================== CILENT DETAILS END ============================= 
      
 credentials()
