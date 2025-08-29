@@ -11,7 +11,7 @@ def cls():
 
 #==============================  DATA CENTER SCHEMA ====================
 # DATA_FILE = "C:\\Users\\Private\\Desktop\\Workspace_Folder\\Python_Project_Repo\\Banking_System\\datacenter\\client_accounts.json" # For Windows
-DATA_FILE = '/opt/lampp/htdocs/gitfetch/Python_Project_Repo/Banking_System/datacenter/client_accounts.json' # For LINUX
+DATA_FILE = '/opt/lampp/htdocs/gitfetch/Python_Project_Repo/Banking_System/datacenter/client_accounts.json' 
 
 def load_data():
     if os.path.exists(DATA_FILE):

@@ -1,0 +1,22 @@
+[
+    {
+        "account_number": "278755378701",
+        "pin": "6082",
+        "name": "Akash Biswas",
+        "age": "45",
+        "phone": "7980898263",
+        "address": "Kolkata Madhyamgram",
+        "email": "akash@gmail.com",
+        "account_type": "Savings Account"
+    },
+    {
+        "account_number": "235428388102",
+        "pin": "8779",
+        "name": "Rahul Kumar",
+        "age": "50",
+        "phone": "7920291266",
+        "address": "Bihar , Patna",
+        "email": "rahul.kumar2022@gmail.com",
+        "account_type": "Current Account"
+    }
+]
