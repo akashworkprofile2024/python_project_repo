@@ -10,23 +10,31 @@ def credentials():
     client_name = input('Enter Your Full Name: ')
     age = input('Enter your age: ')
     phone= input('Enter 10 Digit Number: ')
-    # address = input('Enter your address: ')
+    address = input('Enter your address: ')
     email = input('Enter your email: ')
+    
 
     # Security Client_Name Always have String Value
     if any(char.isdigit() for char in client_name):
       print('Not a Valid Client Name')
       credentials()
-      if age != age.isdigit():
+      if not age.isdigit():
        print('Not a Valid Age Input')
        credentials()   
-      if phone != phone.isdigit() and len(phone) == 10:
+      if not phone.isdigit() and len(phone) != 10:
         print('Not a Valid Input or Digits are less')
         credentials()
-      if '@gmail.com' not in  email or '@yahoo.com' not in email:
+      if not (email.endswith('@gmail.com') or email.endswith('@yahoo.com')):
         print('Not a Valid Email Id')
         credentials() 
-      if 
+
+    else:
+        print(f'Name: {client_name}')  
+        print(f'Age: {age}')  
+        print(f'Phone: {phone}')  
+        print(f'Address: {address}')
+        print(f'Email: {email}')
+          
 
 credentials()    
         
