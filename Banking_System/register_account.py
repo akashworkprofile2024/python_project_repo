@@ -1,7 +1,7 @@
 import os
 import json
 import random
-from twilio.rest import Client
+# from twilio.rest import Client
 
 #========== PASTE TWILIO CONFIGURATION FROM README.md ================
 

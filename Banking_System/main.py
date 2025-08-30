@@ -17,13 +17,13 @@ def main():
         choice = input("Enter your choice: ").strip()
 
         if choice == '1':
-            subprocess.run(['python3', 'register_account.py'])
+            subprocess.run(['python', 'register_account.py'])
             break
         elif choice == '2':
-            subprocess.run(['python3', 'Client_login.py'])
+            subprocess.run(['python', 'Client_login.py'])
             break
         elif choice == '3':
-            subprocess.run(['python3', 'Admin.py'])
+            subprocess.run(['python', 'Admin.py'])
             break
         else:
             print('Invalid choice. Please try again.')
