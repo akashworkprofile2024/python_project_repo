@@ -18,5 +18,15 @@
         "address": "Bihar , Patna",
         "email": "rahul.kumar2022@gmail.com",
         "account_type": "Current Account"
+    },
+    {
+        "account_number": "235428411502",
+        "pin": "4943",
+        "name": "Deep Sarkar",
+        "age": "29",
+        "phone": "8420293923",
+        "address": "kolkata,madhyamgram",
+        "email": "deep@gmail.com",
+        "account_type": "Current Account"
     }
 ]
